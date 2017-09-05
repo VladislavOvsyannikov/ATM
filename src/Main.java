@@ -7,32 +7,32 @@ public class Main {
     static boolean b=true;
     public static void main (String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Введите номиналы (через пробел):  ");
+        System.out.println("Р’РІРµРґРёС‚Рµ РЅРѕРјРёРЅР°Р»С‹ (С‡РµСЂРµР· РїСЂРѕР±РµР»):   ");
         String nominal[] = input.nextLine().split(" ");
         int nominalArr[] = new int[nominal.length];
         for (int i = 0; i < nominal.length; i++) {
             try {
                 nominalArr[i] = Integer.parseInt(nominal[i]);
                 if (nominalArr[i]<=0) {
-                    System.out.println("Неверно введён номинал");System.exit(0);
+                    System.out.println("РќРµРІРµСЂРЅРѕ РІРІРµРґС‘РЅ РЅРѕРјРёРЅР°Р»");System.exit(0);
                 }
             }catch (NumberFormatException e){
-                System.out.println("Неверно введён номинал");System.exit(0);
+                System.out.println("РќРµРІРµСЂРЅРѕ РІРІРµРґС‘РЅ РЅРѕРјРёРЅР°Р»");System.exit(0);
             }
         }
         int nominals[] = transform(nominalArr);
         int value=0;
         try{
-            System.out.println("Введите купюру:  ");
+            System.out.println("Р’РІРµРґРёС‚Рµ РєСѓРїСЋСЂСѓ:  ");
             value = input.nextInt();
             if (value<=0) {
-                System.out.println("Неверная купюра");System.exit(0);
+                System.out.println("РќРµРІРµСЂРЅР°СЏ РєСѓРїСЋСЂР°");System.exit(0);
             }
         }catch (NumberFormatException e){
-            System.out.println("Неверная купюра");System.exit(0);
+            System.out.println("РќРµРІРµСЂРЅР°СЏ РєСѓРїСЋСЂР°");System.exit(0);
         }
         exchange(nominals, value, 0, " ");
-        if (b) System.out.println("Нет размена");
+        if (b) System.out.println("РќРµС‚ СЂР°Р·РјРµРЅР°");
     }
 
     static int[] transform(int[] nominalArr){
@@ -53,7 +53,7 @@ public class Main {
 
     static void exchange(int[] nominals, int sum, int i, String line) {
         if (sum==0) {
-            if (b) System.out.println("Варианты размена:");
+            if (b) System.out.println("Р’Р°СЂРёР°РЅС‚С‹ СЂР°Р·РјРµРЅР°:");
             System.out.println(line);
             b=false;
         }
